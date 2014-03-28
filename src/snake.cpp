@@ -5,7 +5,7 @@
 ** Login   <horiot_b@epitech.net>
 ** 
 ** Started on  Wed Mar 19 14:17:15 2014 benjamin horiot
-** Last update Fri Mar 21 10:02:59 2014 benjamin horiot
+// Last update Tue Mar 25 17:28:55 2014 Raphael Morand
 */
 
 #include "nibbler.hh"

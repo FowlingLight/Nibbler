@@ -5,13 +5,14 @@
 ** Login   <horiot_b@epitech.net>
 ** 
 ** Started on  Wed Mar 19 14:45:03 2014 benjamin horiot
-** Last update Fri Mar 21 10:02:52 2014 benjamin horiot
+// Last update Tue Mar 25 16:01:50 2014 Raphael Morand
 */
 
 #include "nibbler.hh"
 
 NCurses::NCurses(char *name)
 {
+  // /usr/lib/libncurses.so.5
   _handler = dlopen(name, RTLD_LAZY);
   if (_handler)
     {
@@ -37,6 +38,7 @@ NCurses::~NCurses()
 
 int		NCurses::checkEatenTail(Snake *s)
 {
+  // does'nt work if no tail
   std::vector<int>	tailX = s->getTailX();
   std::vector<int>	tailY = s->getTailY();
   int		i = 0;
@@ -76,17 +78,19 @@ void		NCurses::affSnake(Snake *s, int width, int height)
   while (i < width)
     {
       _printw(i, 0, "#");
-      _printw(i++, height, "#");
+      _printw(i, height, "#");
+      ++i;
     }
   i = 0;
   while (i < height)
     {
-      _printw(0, i, "#");
-      _printw(width, i++, "#");
+      _printw(width, i, "#");
+      ++i;
     }
   i = 0;
-  while (tailX[i])
-    _printw(tailX[i], tailY[i++], "X");
+  // doesn't work if no tail
+  //  while (tailX[i])
+  //  _printw(tailX[i], tailY[i++], "X");
   _printw(s->getHeadX(), s->getHeadY(), "x");
 }
 
@@ -97,37 +101,26 @@ void		NCurses::game(int width, int height)
   Snake		s(width / 2, height / 2);
 
   initscr();
-  std::cout << "a" << std::endl;
   while (fail)
     {
-      std::cout << "b" << std::endl;
       erase(); 
-      std::cout << "c" << std::endl;
       move(0, 0);
-      std::cout << "d" << std::endl;
+      affSnake(&s, width, height);
       input = getch();
-      std::cout << "e" << std::endl;
+      // key up/down what is EXIT_KEY
       if (input == KEY_LEFT)
 	s.setDir(false);
       else if (input == KEY_RIGHT)
 	s.setDir(true);
       else if (input == KEY_EXIT)
 	std::exit(0);
-      std::cout << input << std::endl;
-      std::cout << "f" << std::endl;
-      s.addTailX(s.getHeadX());
-      s.addTailY(s.getHeadY());
-      std::cout << "g" << std::endl;
+      //      std::cout << (char)input << std::endl;
+      //      s.addTailX(s.getHeadX());
+      //s.addTailY(s.getHeadY());
       modifHead(&s);
-      std::cout << "h" << std::endl;
-      if (checkEatenTail(&s))
-	std::cout << "1" << std::endl;
-	fail = false;
-      std::cout << "i" << std::endl;
-      affSnake(&s, width, height);
-      std::cout << "j" << std::endl;
+      //if (checkEatenTail(&s))
+      //fail = false;
       refresh();
-      std::cout << "k" << std::endl;
     }
   endwin();
 }

@@ -5,7 +5,7 @@
 ** Login   <horiot_b@epitech.net>
 ** 
 ** Started on  Wed Mar 19 11:34:02 2014 benjamin horiot
-** Last update Fri Mar 21 10:03:13 2014 benjamin horiot
+// Last update Tue Mar 25 17:30:01 2014 Raphael Morand
 */
 
 #ifndef NIBBLER_HH_
@@ -27,6 +27,7 @@ typedef	WINDOW *(*window_ptr)();
 class			Snake
 {
   int			_head[2];
+  // std::vector<std::pair<int, int> > tail?
   std::vector<int>	_tailx;
   std::vector<int>	_taily;
   int			_dir;

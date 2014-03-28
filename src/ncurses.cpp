@@ -5,10 +5,10 @@
 ** Login   <horiot_b@epitech.net>
 ** 
 ** Started on  Wed Mar 19 14:45:03 2014 benjamin horiot
-// Last update Tue Mar 25 16:01:50 2014 Raphael Morand
+// Last update Fri Mar 28 10:18:14 2014 Raphael Morand
 */
 
-#include "nibbler.hh"
+#include "anibbler.hh"
 
 NCurses::NCurses(char *name)
 {

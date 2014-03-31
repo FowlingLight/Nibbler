@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Thu Mar 27 17:21:04 2014 Raphael Morand
-// Last update Fri Mar 28 16:50:30 2014 Raphael Morand
+// Last update Mon Mar 31 13:21:49 2014 Raphael Morand
 //
 
 #include	"Glibc.hh"
@@ -35,5 +35,24 @@ const bool			Fruit::isEaten(const std::pair<int, int>& SnakeHead) const
 void				Fruit::moveFruit(const Snake& snake, 
 						 const std::pair<int, int>& xyMap)
 {
-  
+  int				x;
+  int				y;
+  int				i;
+  bool				is_pos_ok = false;
+
+  while (!is_pos_ok)
+    {
+      x = Glibc::Random::_random() % xyMap.first + 1;
+      y = Glibc::Random::_random() % xyMap.second + 1;
+      is_pos_ok = true;
+      i = 0;
+      while (i < snake.size())
+	{
+	  if (x == snake[i].first && y == snake[i].second)
+	    is_pos_ok = true;
+	  ++i;
+	}
+    }
+  _pos.first = x;
+  _pos.second = t;
 }

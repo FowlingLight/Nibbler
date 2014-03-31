@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 13:49:32 2014 Raphael Morand
-// Last update Fri Mar 28 14:00:27 2014 Raphael Morand
+// Last update Mon Mar 31 13:25:14 2014 Raphael Morand
 //
 
 #ifndef		__IGRAPHICS__
@@ -17,8 +17,10 @@ class		IGraphics
 {
 public:
   ~Igraphics() {};
-  void		Update() const = 0;
-  void		Draw(Snake &snake, std::pair<int, int>& XYmap) const = 0;
+  // totally const will just loop to get input and do the "wait" because the snake move on its own every X sec/msec etc.. 
+  void		getInputs() const = 0;
+  // may need to not be const but not sure from now...
+  void		updateDraw(Snake &snake, std::pair<int, int>& XYmap) const = 0;
 }
 
 #endif

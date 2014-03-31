@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 14:56:48 2014 Raphael Morand
-// Last update Fri Mar 28 10:40:50 2014 Raphael Morand
+// Last update Mon Mar 31 12:51:55 2014 Raphael Morand
 //
 
 #include		"Snake.hh"
@@ -25,8 +25,8 @@ Snake::Snake(const std::pair<int, int>& _xyMap)
   _head = _snake[0];
   _tail = _snake[3];
   move_fct[0] = &Snake::move_up;
-  move_fct[1] = &Snake::move_down;
-  move_fct[2] = &Snake::move_right;
+  move_fct[1] = &Snake::move_right;
+  move_fct[2] = &Snake::move_down;
   move_fct[3] = &Snake::move_left;
 }
 

@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:35:36 2014 Raphael Morand
-// Last update Thu Mar 27 17:08:35 2014 Raphael Morand
+// Last update Mon Mar 31 12:43:13 2014 Raphael Morand
 //
 
 #ifndef		__SNAKE__
@@ -17,8 +17,8 @@
 typedef		enum
   {
     UP = 0,
-    DOWN,
     RIGHT,
+    DOWN,
     LEFT
   }		t_directions;
 

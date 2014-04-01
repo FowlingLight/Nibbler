@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:35:36 2014 Raphael Morand
-// Last update Mon Mar 31 12:43:13 2014 Raphael Morand
+// Last update Tue Apr  1 11:14:37 2014 Raphael Morand
 //
 
 #ifndef		__SNAKE__
@@ -43,11 +43,13 @@ public :
   Snake(const std::pair<int, int>& _xyMap);
   ~Snake();
   const std::vector<std::pair<int, int> >&	getSnake() const;
+  const std::pair<int, int>&			getHead() const;
   const int					getSize() const;
   const bool			checkCollision(const std::pair<int, int> &_xyMap) const;
   void				addSnake();
   void				moveSnake();
   void				setDir(const t_directions dir);
+  const t_directions		getDir() const;
   void				resetTail();
 };
 

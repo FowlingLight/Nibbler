@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 14:56:48 2014 Raphael Morand
-// Last update Mon Mar 31 12:51:55 2014 Raphael Morand
+// Last update Tue Apr  1 11:15:25 2014 Raphael Morand
 //
 
 #include		"Snake.hh"
@@ -35,6 +35,9 @@ Snake::~Snake()
 
 const std::vector<std::pair<int, int> >&	Snake::getSnake() const
 {return (_snake);}
+
+const std::pair<int, int>&	Snake::getHead() const
+{return (_head);}
 
 const int		Snake::getSize() const
 {return (_size);}
@@ -122,3 +125,6 @@ void			Snake::moveSnake()
 
 void			Snake::setDir(const t_directions dir)
 {_dir = dir;}
+
+const t_directions	Snake::getDir() const
+{return (_dir);}

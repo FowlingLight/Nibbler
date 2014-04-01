@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:05:01 2014 Raphael Morand
-// Last update Wed Mar 26 14:32:10 2014 Raphael Morand
+// Last update Tue Apr  1 09:55:54 2014 Raphael Morand
 //
 
 #ifndef		__NIBBLER__
@@ -23,8 +23,8 @@ private :
   void			*_graphics;
   std::pair<int, int>	_xyMap;
 public :
-  Nibbler(const void *handler, const std::pair<int, int>& xyMap, int snakeSize);
-  Nibbler(const void *handler, const int snakeSize);
+  Nibbler(const void *handler, const std::pair<int, int>& xyMap);
+  Nibbler(const void *handler, );
   ~Nibbler();
   int			runGame();
 };

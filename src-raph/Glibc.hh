@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 16:41:23 2014 Raphael Morand
-// Last update Tue Apr  1 09:47:53 2014 Raphael Morand
+// Last update Tue Apr  1 10:02:08 2014 Raphael Morand
 //
 
 #ifndef		__GLIBC_HH_
@@ -13,6 +13,7 @@
 
 #include	<time.h>
 #include	<stdlib.h>
+#include	<dlfcn.h>
 
 namespace	Glibc
 {
@@ -27,6 +28,14 @@ namespace	Glibc
   {
   public:
     static time_t	_time(time_t *);
+  };
+
+  class		Libdl
+  {
+    static void	*_dlopen(const char *filename, int flag);
+    static char *_dlerror(void);
+    static void *_dlsym(void *handle, const char *symbol);
+    static int	_dlclose(void *handle);
   };
 }
 

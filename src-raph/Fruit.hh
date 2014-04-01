@@ -5,15 +5,15 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 14:38:17 2014 Raphael Morand
-// Last update Fri Mar 28 17:12:35 2014 Raphael Morand
+// Last update Tue Apr  1 09:51:17 2014 Raphael Morand
 //
 
 #ifndef		__FRUIT__
 #define		__FRUIT__
 
 #include	<utility>
-#include	"Time.hh"
-#include	"Random.hh"
+#include	"Snake.hh"
+#include	"Glibc.hh"
 
 class		Fruit
 {
@@ -24,7 +24,8 @@ public :
   ~Fruit();
   const std::pair<int, int>&	getFruit() const;
   const bool			isEaten(const std::pair<int, int>& SnakeHead) const;
-  void				moveFruit(const Snake& snake);
+  void				moveFruit(const Snake& snake, 
+					  const std::pair<int, int>& xyMap);
 };
 
 #endif

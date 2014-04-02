@@ -5,10 +5,13 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 16:43:36 2014 Raphael Morand
-// Last update Tue Apr  1 10:02:27 2014 Raphael Morand
+// Last update Wed Apr  2 11:10:37 2014 Raphael Morand
 //
 
 #include	"Glibc.hh"
+
+int		Glibc::Atoi::_atoi(const char *number)
+{return (atoi(number));}
 
 long int	Glibc::Random::_random()
 {return (random());}
@@ -18,6 +21,9 @@ void	Glibc::Random::_srandom(unsigned int seed)
 
 time_t	Glibc::Time::_time(time_t *t)
 {return (time(t));}
+
+int	Glibc::Time::_gettimeofday(struct timeval *t, struct timezone *tzp)
+{return (gettimeofday(t, tzp));}
 
 void	*Glibc::Libdl::_dlopen(const char *filename, int flag)
 {

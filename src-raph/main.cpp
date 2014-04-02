@@ -5,12 +5,12 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 12:50:36 2014 benjamin horiot
-// Last update Wed Apr  2 13:49:08 2014 benjamin horiot
+// Last update Wed Apr  2 16:04:24 2014 benjamin horiot
 //
 
 #include "Ncurses.hh"
 
-int		main()
+int		main_moi()
 {
   Ncurses	n;
   Snake	s;
@@ -23,4 +23,37 @@ int		main()
   while (1)
     halfdelay(1);
   return (0);
+}
+
+
+
+#include	<iostream>
+
+#include	"Nibbler.hh"
+#include	"Glibc.hh"
+#include	"Snake.hh"
+#include	"Fruit.hh"
+#include	"IGraphics.hh"
+
+int		main(int ac, char **av)
+{
+  Nibbler	*nibbler;
+  void		*handle;
+
+  if (ac != 4)
+    return (0);
+  if ((handle = Glibc::Libdl::_dlopen(av[3], RTLD_LAZY)) == NULL)
+    {
+      std::cout << Glibc::Libdl::_dlerror() << std::endl;
+      return (0);
+    }
+  try
+    {
+      nibbler = new Nibbler(handle);
+      nibbler->runGame();
+    }
+  catch (std::exception& e)
+    {
+      std::cout << e.what() << std::endl;
+    }
 }

@@ -5,18 +5,25 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 16:41:23 2014 Raphael Morand
-// Last update Tue Apr  1 11:38:16 2014 Raphael Morand
+// Last update Wed Apr  2 11:11:45 2014 Raphael Morand
 //
 
 #ifndef		__GLIBC_HH_
 #define		__GLIBC_HH_
 
 #include	<time.h>
+#include	<sys/time.h>
 #include	<stdlib.h>
 #include	<dlfcn.h>
 
 namespace	Glibc
 {
+  class		Atoi
+  {
+  public:
+    static int	_atoi(const char* number);
+  };
+
   class		Random
   {
   public :
@@ -28,6 +35,7 @@ namespace	Glibc
   {
   public:
     static time_t	_time(time_t *);
+    static int		_gettimeofday(struct timeval *t, struct timezone *tzp);
   };
 
   class		Libdl

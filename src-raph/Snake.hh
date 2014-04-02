@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:35:36 2014 Raphael Morand
-// Last update Tue Apr  1 11:14:37 2014 Raphael Morand
+// Last update Wed Apr  2 15:50:53 2014 benjamin horiot
 //
 
 #ifndef		__SNAKE__
@@ -19,7 +19,8 @@ typedef		enum
     UP = 0,
     RIGHT,
     DOWN,
-    LEFT
+    LEFT,
+    EXIT
   }		t_directions;
 
 class		Snake;

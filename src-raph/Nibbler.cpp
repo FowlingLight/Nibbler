@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:04:56 2014 Raphael Morand
-// Last update Tue Apr  1 12:54:18 2014 Raphael Morand
+// Last update Wed Apr  2 11:15:57 2014 Raphael Morand
 //
 
 #include	<exception>
@@ -51,13 +51,18 @@ bool		Nibbler::runGame()
 {
   t_directions	tmp;
   bool		victory = false;
+  struct timeval	t;
+  struct timeval	tmp_t;
 
   while (!_snake->checkCollision(_xyMap) && !victory)
     {
       tmp = _snake->getDir();
-      while (/*time managing*/1)
+      Glibc::Time::_gettimeofday(&t, NULL);
+      tmp_t = t;
+      while (tmp_t.tv_usec < t.tv_usec + 500000)
 	{
 	  tmp = _graphics->getInput(_snake->getDir());
+	  Glibc::Time::_gettimeofday(&tmp_t, NULL);
 	}
       _snake->setDir(tmp);
       _snake->moveSnake();
@@ -67,10 +72,7 @@ bool		Nibbler::runGame()
 	  if (_snake->getSize() != _xyMap.first * _xyMap.second)
 	    _fruit->moveFruit(_snake, _xyMap);
 	  else
-	    {
-	      victory = true;
-	      delete _fruit;
-	    }
+	    victory = true;
 	}
       _graphics->updateDraw(*_snake, *_fruit, _xyMap);
     }

@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:05:01 2014 Raphael Morand
-// Last update Tue Apr  1 12:51:50 2014 Raphael Morand
+// Last update Wed Apr  2 10:35:25 2014 Raphael Morand
 //
 
 #ifndef		__NIBBLER__
@@ -32,7 +32,7 @@ public :
   Nibbler(void *handler, const std::pair<int, int>& xyMap);
   Nibbler(void *handler);
   ~Nibbler();
-  int			runGame();
+  bool			runGame();
 };
 
 #endif

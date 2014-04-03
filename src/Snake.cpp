@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 14:56:48 2014 Raphael Morand
-// Last update Thu Mar 27 17:07:44 2014 Raphael Morand
+// Last update Tue Apr  1 11:15:25 2014 Raphael Morand
 //
 
 #include		"Snake.hh"
@@ -25,8 +25,8 @@ Snake::Snake(const std::pair<int, int>& _xyMap)
   _head = _snake[0];
   _tail = _snake[3];
   move_fct[0] = &Snake::move_up;
-  move_fct[1] = &Snake::move_down;
-  move_fct[2] = &Snake::move_right;
+  move_fct[1] = &Snake::move_right;
+  move_fct[2] = &Snake::move_down;
   move_fct[3] = &Snake::move_left;
 }
 
@@ -35,6 +35,9 @@ Snake::~Snake()
 
 const std::vector<std::pair<int, int> >&	Snake::getSnake() const
 {return (_snake);}
+
+const std::pair<int, int>&	Snake::getHead() const
+{return (_head);}
 
 const int		Snake::getSize() const
 {return (_size);}
@@ -75,6 +78,7 @@ void			Snake::move_up()
       ++i;
     }
   _snake[0].second--;
+  _head = _snake[0];
 }
 
 void			Snake::move_down()
@@ -87,6 +91,7 @@ void			Snake::move_down()
       ++i;
     }
   _snake[0].second++;
+  _head = _snake[0];
 }
 
 void			Snake::move_right()
@@ -99,6 +104,7 @@ void			Snake::move_right()
       ++i;
     }
   _snake[0].first++;
+  _head = _snake[0];
 }
 
 void			Snake::move_left()
@@ -111,6 +117,7 @@ void			Snake::move_left()
       ++i;
     }
   _snake[0].first--;
+  _head = _snake[0];
 }
 
 void			Snake::moveSnake()
@@ -118,3 +125,6 @@ void			Snake::moveSnake()
 
 void			Snake::setDir(const t_directions dir)
 {_dir = dir;}
+
+const t_directions	Snake::getDir() const
+{return (_dir);}

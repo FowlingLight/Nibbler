@@ -1,51 +1,70 @@
+//
+// main.cpp for main in /home/horiotb/Documents/projets/c++/cpp_nibbler/src-raph
+// 
+// Made by benjamin horiot
+// Login   <horiot_b@epitech.net>
+// 
+// Started on  Wed Apr  2 12:50:36 2014 benjamin horiot
+// Last update Thu Apr  3 14:42:23 2014 benjamin horiot
+//
+
 /*
-** main.cpp for main in /home/horiotb/Documents/projets/c++/nibler/src
-** 
-** Made by benjamin horiot
-** Login   <horiot_b@epitech.net>
-** 
-** Started on  Mon Mar 17 11:08:57 2014 benjamin horiot
-** Last update Fri Mar 21 10:02:46 2014 benjamin horiot
-*/
+#include "Ncurses.hh"
 
-#include "nibbler.hh"
-
-int		my_putusage()
+int		main_moi()
 {
-  std::cerr << "Usage : ./nibler width height LIB.so" << std::endl;
-  return (-1);
-}
+  Ncurses	n;
+  Snake	s;
+  Fruit	f;
+  std::pair<int, int>	map;
 
-int		check_size(int width, int height)
-{
-  if (width < 5 || width > 30 || height < 5 || height > 30)
-    return (my_puterror("Enter a map between 5x5 and 30x30", 0));
-  return (1);
-}
-
-int		check_lib(char *name)
-{
-  void		*lib;
-
-  lib = dlopen(name, RTLD_LAZY);
-  dlclose(lib);
+  map.first = 10;
+  map.second = 5;
+  n.updateDraw(s, f, map);
+  while (1)
+    halfdelay(1);
   return (0);
 }
+*/
+
+
+#include	<iostream>
+
+#include	"Nibbler.hh"
+#include	"Glibc.hh"
+#include	"Snake.hh"
+#include	"Fruit.hh"
+#include	"IGraphics.hh"
 
 int		main(int ac, char **av)
 {
+  Nibbler	*nibbler;
+  void		*handle;
+  std::pair<int, int>	map;
+
   if (ac != 4)
-    return (my_putusage());
-
-  int			width;
-  int			height;
-  std::stringstream	tmp1(av[1]);
-  std::stringstream	tmp2(av[2]);
-  NCurses		n(av[3]);
-
-  tmp1 >> width;
-  tmp2 >> height;
-  n.game(width, height);
-  //  if (!check_size(width, height) || !check_lib(av[3]))
-  //    return (-1);
+    {
+      std::cerr << "Usage : ./nibler width height LIB.so" << std::endl;
+      return (-1);
+    }
+  if ((handle = Glibc::Libdl::_dlopen(av[3], RTLD_LAZY)) == NULL)
+    {
+      std::cerr << Glibc::Libdl::_dlerror() << std::endl;
+      return (-1);
+    }
+  try
+    {
+      map.first = Glibc::Atoi::_atoi(av[1]);
+      map.second = Glibc::Atoi::_atoi(av[2]);
+      std::cout << "aaa" << std::endl;
+      nibbler = new Nibbler(handle, map);
+      std::cout << "aaa" << std::endl;
+      nibbler->runGame();
+    }
+  catch (std::exception& e)
+    {
+      std::cerr << e.what() << std::endl;
+      return (-1);
+    }
+  return (0);
 }

@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:35:36 2014 Raphael Morand
-// Last update Thu Mar 27 17:08:35 2014 Raphael Morand
+// Last update Wed Apr  2 15:50:53 2014 benjamin horiot
 //
 
 #ifndef		__SNAKE__
@@ -17,9 +17,10 @@
 typedef		enum
   {
     UP = 0,
-    DOWN,
     RIGHT,
-    LEFT
+    DOWN,
+    LEFT,
+    EXIT
   }		t_directions;
 
 class		Snake;
@@ -43,11 +44,13 @@ public :
   Snake(const std::pair<int, int>& _xyMap);
   ~Snake();
   const std::vector<std::pair<int, int> >&	getSnake() const;
+  const std::pair<int, int>&			getHead() const;
   const int					getSize() const;
   const bool			checkCollision(const std::pair<int, int> &_xyMap) const;
   void				addSnake();
   void				moveSnake();
   void				setDir(const t_directions dir);
+  const t_directions		getDir() const;
   void				resetTail();
 };
 

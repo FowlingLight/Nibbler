@@ -5,15 +5,15 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 13:49:32 2014 Raphael Morand
-// Last update Thu Apr  3 11:06:01 2014 Raphael Morand
+// Last update Thu Apr  3 15:00:16 2014 benjamin horiot
 //
 
 #ifndef		__IGRAPHICS__
 #define		__IGRAPHICS__
 
-#include	"Nibbler.hh"
+//#include	"Nibbler.hh"
 #include	"Fruit.hh"
-#include	"Snake.hh"
+//#include	"Snake.hh"
 
 class		IGraphics
 {
@@ -22,11 +22,11 @@ public:
   // totally const will just loop to get input and do the "wait" because the snake move on its own every X sec/msec etc.. 
   virtual t_directions	getInput(const t_directions dir) const = 0;
   // may need to not be const but not sure from now...
-  virtual void		updateDraw(const Snake &snake, const Fruit &fruit, std::pair<int, int>& XYmap) = 0;
+  virtual void		updateDraw(const Snake &snake, const Fruit &fruit, const std::pair<int, int>& XYmap) = 0;
   virtual void		gameOver(const bool Victory) = 0;
 };
 
-typedef IGraphics	*(*getInstance)(const std::pair<int, int>&);
-typedef	void		(*deleteInstance)(IGraphics *);
+typedef IGraphics	*(*getInst)(const std::pair<int, int>&);
+typedef	void		(*deleteInst)(IGraphics *);
 
 #endif

@@ -5,9 +5,10 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 12:50:36 2014 benjamin horiot
-// Last update Wed Apr  2 16:04:24 2014 benjamin horiot
+// Last update Thu Apr  3 14:42:23 2014 benjamin horiot
 //
 
+/*
 #include "Ncurses.hh"
 
 int		main_moi()
@@ -24,7 +25,7 @@ int		main_moi()
     halfdelay(1);
   return (0);
 }
-
+*/
 
 
 #include	<iostream>
@@ -39,21 +40,31 @@ int		main(int ac, char **av)
 {
   Nibbler	*nibbler;
   void		*handle;
+  std::pair<int, int>	map;
 
   if (ac != 4)
-    return (0);
+    {
+      std::cerr << "Usage : ./nibler width height LIB.so" << std::endl;
+      return (-1);
+    }
   if ((handle = Glibc::Libdl::_dlopen(av[3], RTLD_LAZY)) == NULL)
     {
-      std::cout << Glibc::Libdl::_dlerror() << std::endl;
-      return (0);
+      std::cerr << Glibc::Libdl::_dlerror() << std::endl;
+      return (-1);
     }
   try
     {
-      nibbler = new Nibbler(handle);
+      map.first = Glibc::Atoi::_atoi(av[1]);
+      map.second = Glibc::Atoi::_atoi(av[2]);
+      std::cout << "aaa" << std::endl;
+      nibbler = new Nibbler(handle, map);
+      std::cout << "aaa" << std::endl;
       nibbler->runGame();
     }
   catch (std::exception& e)
     {
-      std::cout << e.what() << std::endl;
+      std::cerr << e.what() << std::endl;
+      return (-1);
     }
+  return (0);
 }

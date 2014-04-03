@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:05:01 2014 Raphael Morand
-// Last update Wed Apr  2 10:35:25 2014 Raphael Morand
+// Last update Thu Apr  3 15:00:41 2014 benjamin horiot
 //
 
 #ifndef		__NIBBLER__
@@ -26,8 +26,8 @@ private :
   Fruit			*_fruit;
   IGraphics		*_graphics;
   std::pair<int, int>	_xyMap;
-  getInstance		get;
-  deleteInstance	del;
+  getInst		get;
+  deleteInst		del;
 public :
   Nibbler(void *handler, const std::pair<int, int>& xyMap);
   Nibbler(void *handler);

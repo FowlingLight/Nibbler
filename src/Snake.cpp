@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 14:56:48 2014 Raphael Morand
-// Last update Tue Apr  1 11:15:25 2014 Raphael Morand
+// Last update Thu Apr  3 17:09:34 2014 Raphael Morand
 //
 
 #include		"Snake.hh"
@@ -70,12 +70,12 @@ void			Snake::resetTail()
 
 void			Snake::move_up()
 {
-  int			i = 1;
+  int			i = _size;
 
-  while (i < _size)
+  while (i > 0)
     {
       _snake[i] = _snake[i - 1];
-      ++i;
+      --i;
     }
   _snake[0].second--;
   _head = _snake[0];
@@ -83,12 +83,12 @@ void			Snake::move_up()
 
 void			Snake::move_down()
 {
-  int			i = 1;
+  int			i = _size;
 
-  while (i < _size)
+  while (i > 0)
     {
       _snake[i] = _snake[i - 1];
-      ++i;
+      --i;
     }
   _snake[0].second++;
   _head = _snake[0];
@@ -96,12 +96,12 @@ void			Snake::move_down()
 
 void			Snake::move_right()
 {
-  int			i = 1;
+  int			i = _size;
 
-  while (i < _size)
+  while (i > 0)
     {
       _snake[i] = _snake[i - 1];
-      ++i;
+      --i;
     }
   _snake[0].first++;
   _head = _snake[0];
@@ -109,12 +109,12 @@ void			Snake::move_right()
 
 void			Snake::move_left()
 {
-  int			i = 1;
+  int			i = _size;
 
-  while (i < _size)
+  while (i > 0)
     {
       _snake[i] = _snake[i - 1];
-      ++i;
+      --i;
     }
   _snake[0].first--;
   _head = _snake[0];

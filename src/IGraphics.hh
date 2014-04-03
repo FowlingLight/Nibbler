@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 13:49:32 2014 Raphael Morand
-// Last update Thu Apr  3 15:00:16 2014 benjamin horiot
+// Last update Thu Apr  3 16:47:34 2014 benjamin horiot
 //
 
 #ifndef		__IGRAPHICS__

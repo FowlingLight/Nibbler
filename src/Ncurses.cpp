@@ -5,7 +5,7 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 10:04:48 2014 benjamin horiot
-// Last update Thu Apr  3 17:12:44 2014 benjamin horiot
+// Last update Thu Apr  3 17:18:06 2014 benjamin horiot
 //
 
 #include <iostream>
@@ -15,7 +15,6 @@ Ncurses::Ncurses()
 {
   w = initscr();
   noecho();
-  //raw();
 }
 
 Ncurses::~Ncurses()
@@ -41,11 +40,10 @@ extern "C"
 
 t_directions	Ncurses::getInput(const t_directions dir) const
 {
-  //nodelay(w, 1);
-  halfdelay(5);
+  halfdelay(2);
+
   unsigned int	a = getch();
-  //usleep(100000);
-  //std::cout << a << std::endl;
+
   if (a == 113)
     {
       if (dir == 0)
@@ -92,11 +90,11 @@ void		Ncurses::updateDraw(const Snake &s, const Fruit &f,
   a = 0;
   while (a < snake.size())
     {
-      std::cout << "tail" << snake[a].second << " " << snake[a].first << " ";
+      //std::cout << "tail" << snake[a].second << " " << snake[a].first << " ";
       mvprintw(snake[a].second, snake[a].first, "+");
       a++;
     }
-  std::cout << std::endl;
+  //std::cout << std::endl;
   mvprintw(s.getHead().second, s.getHead().first, "x");
   attroff(COLOR_PAIR(22));
   init_pair(23, COLOR_BLUE, -1);

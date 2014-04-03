@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:04:56 2014 Raphael Morand
-// Last update Thu Apr  3 16:56:44 2014 benjamin horiot
+// Last update Thu Apr  3 17:15:48 2014 benjamin horiot
 //
 
 #include	<exception>
@@ -59,37 +59,30 @@ bool		Nibbler::runGame()
     {
       _graphics->updateDraw(*_snake, *_fruit, _xyMap);
       tmp = _snake->getDir();
-      std::cout << tmp << std::endl;
       Glibc::Time::_gettimeofday(&t, NULL);
-      std::cout << "a" << std::endl;
       tmp_t = t; 
-      std::cout << "b" << std::endl;
       //while (tmp_t.tv_usec < t.tv_usec + 50000)
       //{
 	  tmp = _graphics->getInput(_snake->getDir());
 	  //Glibc::Time::_gettimeofday(&tmp_t, NULL);
 	  //}
-      std::cout << "c" << std::endl;
       if (tmp == 4)
 	victory == true;
       else
 	{
-	  std::cout << tmp << std::endl;
+	  //std::cout << tmp << std::endl;
 	  _snake->setDir(tmp);
 	  _snake->moveSnake();
-	  std::cout << "e" << std::endl;
 	  if (_fruit->isEaten(_snake->getHead()))
 	    {
-	      std::cout << "f" << std::endl;
 	      _snake->addSnake();
 	      if (_snake->getSize() != _xyMap.first * _xyMap.second)
 		_fruit->moveFruit(_snake, _xyMap);
 	      else
 		victory = true;
-	      std::cout << "g" << std::endl;
 	    }
+	  _snake->resetTail();
 	}
-      std::cout << "h" << std::endl;
     }
   return (victory);
 }

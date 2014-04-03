@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 13:49:32 2014 Raphael Morand
-// Last update Thu Apr  3 10:29:08 2014 Raphael Morand
+// Last update Thu Apr  3 11:06:01 2014 Raphael Morand
 //
 
 #ifndef		__IGRAPHICS__
@@ -26,8 +26,7 @@ public:
   virtual void		gameOver(const bool Victory) = 0;
 };
 
-typedef IGraphics	*(*getInstance)(const std::pair<int, int>&,
-					const Snake&);
+typedef IGraphics	*(*getInstance)(const std::pair<int, int>&);
 typedef	void		(*deleteInstance)(IGraphics *);
 
 #endif

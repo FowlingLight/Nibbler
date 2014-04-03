@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:04:56 2014 Raphael Morand
-// Last update Wed Apr  2 13:28:40 2014 Raphael Morand
+// Last update Thu Apr  3 10:29:37 2014 Raphael Morand
 //
 
 #include	<exception>
@@ -23,7 +23,7 @@ Nibbler::Nibbler(void *handler, const std::pair<int, int>& xyMap)
   if (!get || !del || !_snake || !_fruit)
     throw std::exception();
   _fruit->moveFruit(_snake, _xyMap);
-  _graphics = get();
+  _graphics = get(_xyMap, _snake);
 }
 
 Nibbler::Nibbler(void *handler)

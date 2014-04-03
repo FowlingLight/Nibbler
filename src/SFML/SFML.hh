@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Apr  2 15:18:34 2014 Raphael Morand
-// Last update Wed Apr  2 15:52:45 2014 Raphael Morand
+// Last update Thu Apr  3 16:08:02 2014 Raphael Morand
 //
 
 #ifndef	__SFML_NIB__
@@ -18,11 +18,12 @@
 class		SFML_Nib : public IGraphics
 {
 private:
-  sf::WindowRender	*wr;
-  sf::Sprite		*snakeHead;
-  sf::Sprite		*snakeBody;
-  sf::Sprite		*wall;
-  sf::Sprite		*fruit;
+  sf::WindowRender	wr;
+  sf::Texture		spriteSheet;
+  sf::Sprite		snakeHead;
+  sf::Sprite		snakeBody;
+  sf::Sprite		wall;
+  sf::Sprite		_fruit;
 public:
   SFML_Nib();
   ~SFML_Nib();

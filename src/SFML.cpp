@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Apr  2 15:18:30 2014 Raphael Morand
-// Last update Fri Apr  4 17:32:00 2014 Raphael Morand
+// Last update Fri Apr  4 18:03:57 2014 Raphael Morand
 //
 
 #include	<exception>
@@ -50,31 +50,28 @@ t_directions		SFML_Nib::getInput(const t_directions dir)
   sf::Event		event;
   sf::Clock		clock;
   sf::Time		time;
-  sf::Time		time_t;
 
   time = clock.getElapsedTime();
-  time_t = time;
   tmp = dir;
-  while (time_t.asMilliseconds() < time.asMilliseconds() + 200 || wr.pollEvent(event))
+  while (clock.getElapsedTime().asMilliseconds() < time.asMilliseconds() + 200 && wr.waitEvent(event))
     {
       if (event.type == sf::Event::Closed
 	  || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
 	tmp = EXIT;
-      else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
 	  if (dir == LEFT)
 	    tmp = UP;
 	  else
 	    tmp = (t_directions)(dir + 1);
 	}
-      else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Q))
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
 	  if (dir == UP)
 	    tmp = LEFT;
 	  else
 	    tmp = (t_directions)(dir - 1);
 	}
-      time_t = clock.getElapsedTime();
     }
   return (tmp);
 }
@@ -94,7 +91,7 @@ bool		is_head(const std::pair<int, int> head, int x, int y)
 
 bool		is_snake(const std::vector<std::pair<int, int> >& snake, const int x, const int y)
 {
-  int		i = 1;
+  unsigned int		i = 1;
   
   while (i < snake.size())
     {
@@ -153,4 +150,4 @@ void		SFML_Nib::updateDraw(const Snake& snake, const Fruit& fruit,
 }
 
 void		SFML_Nib::gameOver(bool tre)
-{}
+{(void)tre;}

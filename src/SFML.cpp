@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Apr  2 15:18:30 2014 Raphael Morand
-// Last update Fri Apr  4 17:09:29 2014 Raphael Morand
+// Last update Fri Apr  4 17:32:00 2014 Raphael Morand
 //
 
 #include	<exception>
@@ -25,6 +25,7 @@ void			deleteInstance(SFML_Nib *inst)
 SFML_Nib::SFML_Nib(const std::pair<int, int>& map)
 {
   wr.create(sf::VideoMode((map.first + 2) * 8, (map.second + 2) * 8), "Nibbler");
+  wr.setKeyRepeatEnabled(false);
   if (!wr.isOpen())
     throw std::exception();
   if (!spriteSheet.loadFromFile("./ressources/Nibbler.bmp"))
@@ -57,7 +58,7 @@ t_directions		SFML_Nib::getInput(const t_directions dir)
   while (time_t.asMilliseconds() < time.asMilliseconds() + 200 || wr.pollEvent(event))
     {
       if (event.type == sf::Event::Closed
-	  || (event.type == sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
+	  || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
 	tmp = EXIT;
       else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
@@ -105,7 +106,7 @@ bool		is_snake(const std::vector<std::pair<int, int> >& snake, const int x, cons
 }
 
 void		SFML_Nib::updateDraw(const Snake& snake, const Fruit& fruit,
-			   const std::pair<int, int>& map)
+				     const std::pair<int, int>& map)
 {
   sf::RenderTexture	rt;
   sf::Sprite		sp;
@@ -145,7 +146,7 @@ void		SFML_Nib::updateDraw(const Snake& snake, const Fruit& fruit,
       ++y;
     }
   sp.setTexture(rt.getTexture());
-  //  sp.setPosition(0,0);
+  sp.setPosition(0,0);
   wr.clear();
   wr.draw(sp);
   wr.display();

@@ -5,7 +5,7 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 10:05:42 2014 benjamin horiot
-// Last update Thu Apr  3 16:46:15 2014 benjamin horiot
+// Last update Fri Apr  4 11:23:22 2014 Raphael Morand
 //
 
 #ifndef NCURSES_HH_
@@ -25,7 +25,7 @@ public:
   Ncurses();
   virtual ~Ncurses();
 
-  virtual t_directions	getInput(const t_directions) const;
+  virtual t_directions	getInput(const t_directions);
   virtual void		updateDraw(const Snake &, const Fruit &, const std::pair<int, int>&);
   virtual void		gameOver(const bool);
 };

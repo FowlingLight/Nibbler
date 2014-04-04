@@ -5,7 +5,7 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 10:04:48 2014 benjamin horiot
-// Last update Fri Apr  4 13:07:42 2014 benjamin horiot
+// Last update Fri Apr  4 17:11:40 2014 Raphael Morand
 //
 
 #include <iostream>
@@ -40,7 +40,7 @@ extern "C"
   }
 }
 
-t_directions	Ncurses::getInput(const t_directions dir) const
+t_directions	Ncurses::getInput(const t_directions dir)
 {
   halfdelay(2);
 

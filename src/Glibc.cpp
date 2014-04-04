@@ -5,13 +5,22 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 16:43:36 2014 Raphael Morand
-// Last update Wed Apr  2 11:10:37 2014 Raphael Morand
+// Last update Fri Apr  4 17:50:22 2014 benjamin horiot
 //
 
 #include	"Glibc.hh"
 
 int		Glibc::Atoi::_atoi(const char *number)
 {return (atoi(number));}
+
+int		Glibc::Read::_read(int fd, char *buff, int len)
+{return (read(fd, buff, len));}
+
+int		Glibc::Fcntl::_fcntl(int fd, int flag, int mod)
+{return (fcntl(fd, flag, mod));}
+
+int		Glibc::Usleep::_usleep(int sleep)
+{return (usleep(sleep));}
 
 long int	Glibc::Random::_random()
 {return (random());}

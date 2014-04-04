@@ -5,12 +5,13 @@
 ## Login   <horiot_b@epitech.net>
 ## 
 ## Started on  Sat Mar  8 10:56:32 2014 benjamin horiot
-## Last update Fri Apr  4 11:26:59 2014 laguer_s
+## Last update Fri Apr  4 17:34:56 2014 benjamin horiot
 ##
 
 SRC_NC	=	src/Fruit.cpp \
 		src/Ncurses.cpp \
-		src/Snake.cpp
+		src/Snake.cpp \
+		src/Glibc.cpp
 
 SRC	=	src/Fruit.cpp \
 		src/Glibc.cpp \

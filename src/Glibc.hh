@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Fri Mar 28 16:41:23 2014 Raphael Morand
-// Last update Wed Apr  2 11:11:45 2014 Raphael Morand
+// Last update Fri Apr  4 17:50:53 2014 benjamin horiot
 //
 
 #ifndef		__GLIBC_HH_
@@ -15,6 +15,9 @@
 #include	<sys/time.h>
 #include	<stdlib.h>
 #include	<dlfcn.h>
+#include	<fcntl.h>
+#include	<unistd.h>
+#include	<sys/types.h>
 
 namespace	Glibc
 {
@@ -22,6 +25,24 @@ namespace	Glibc
   {
   public:
     static int	_atoi(const char* number);
+  };
+
+  class		Read
+  {
+  public:
+    static int	_read(int, char *, int);
+  };
+
+  class		Fcntl
+  {
+  public:
+    static int	_fcntl(int, int, int);
+  };
+
+  class		Usleep
+  {
+  public:
+    static int	_usleep(int);
   };
 
   class		Random

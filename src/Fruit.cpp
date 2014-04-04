@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Thu Mar 27 17:21:04 2014 Raphael Morand
-// Last update Fri Apr  4 10:28:42 2014 benjamin horiot
+// Last update Fri Apr  4 17:42:53 2014 benjamin horiot
 //
 
 #include	"Fruit.hh"
@@ -49,7 +49,7 @@ void				Fruit::moveFruit(const Snake *snake,
 	{
 	  if (x == snake->getSnake()[i].first &&
 	      y == snake->getSnake()[i].second)
-	    is_pos_ok = true;
+	    is_pos_ok = false;
 	  ++i;
 	}
     }

@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 14:56:48 2014 Raphael Morand
-// Last update Thu Apr  3 17:09:34 2014 Raphael Morand
+// Last update Fri Apr  4 10:30:00 2014 benjamin horiot
 //
 
 #include		"Snake.hh"
@@ -39,10 +39,10 @@ const std::vector<std::pair<int, int> >&	Snake::getSnake() const
 const std::pair<int, int>&	Snake::getHead() const
 {return (_head);}
 
-const int		Snake::getSize() const
+int		Snake::getSize() const
 {return (_size);}
 
-const bool		Snake::checkCollision(const std::pair<int, int>& map) const
+bool		Snake::checkCollision(const std::pair<int, int>& map) const
 {
   int		i = 1;
 
@@ -126,5 +126,5 @@ void			Snake::moveSnake()
 void			Snake::setDir(const t_directions dir)
 {_dir = dir;}
 
-const t_directions	Snake::getDir() const
+t_directions	Snake::getDir() const
 {return (_dir);}

@@ -5,7 +5,7 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 10:04:48 2014 benjamin horiot
-// Last update Thu Apr  3 17:18:06 2014 benjamin horiot
+// Last update Fri Apr  4 10:36:08 2014 benjamin horiot
 //
 
 #include <iostream>
@@ -15,10 +15,12 @@ Ncurses::Ncurses()
 {
   w = initscr();
   noecho();
+  curs_set(0);
 }
 
 Ncurses::~Ncurses()
 {
+  curs_set(1);
   echo();
   endwin();
   system("clear");
@@ -84,17 +86,16 @@ void		Ncurses::updateDraw(const Snake &s, const Fruit &f,
       mvprintw(a, 0, "#");
       mvprintw(a++, mapSize.first + 1, "#");
     }
+  mvprintw(mapSize.second + 1, mapSize.first + 1, "#");
   attroff(COLOR_PAIR(21));
   init_pair(22, COLOR_GREEN, -1);
   attron(COLOR_PAIR(22));
   a = 0;
-  while (a < snake.size())
+  while (a < (int)snake.size())
     {
-      //std::cout << "tail" << snake[a].second << " " << snake[a].first << " ";
       mvprintw(snake[a].second, snake[a].first, "+");
       a++;
     }
-  //std::cout << std::endl;
   mvprintw(s.getHead().second, s.getHead().first, "x");
   attroff(COLOR_PAIR(22));
   init_pair(23, COLOR_BLUE, -1);

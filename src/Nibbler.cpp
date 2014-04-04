@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:04:56 2014 Raphael Morand
-// Last update Thu Apr  3 17:15:48 2014 benjamin horiot
+// Last update Fri Apr  4 10:37:59 2014 benjamin horiot
 //
 
 #include	<exception>
@@ -22,7 +22,17 @@ Nibbler::Nibbler(void *handler, const std::pair<int, int>& xyMap)
   get = (getInst)Glibc::Libdl::_dlsym(handler, "getInstance");
   del = (deleteInst)Glibc::Libdl::_dlsym(handler, "deleteInstance");
   if (!get || !del || !_snake || !_fruit)
-    throw std::exception();
+    {
+      if (!get)
+	std::cout << "get" << std::endl;
+      if (!del)
+	std::cout << "del" << std::endl;
+      if (!_snake)
+	std::cout << "snake" << std::endl;
+      if (!_fruit)
+	std::cout << "fruit" << std::endl;
+      throw std::exception();
+    }
   _fruit->moveFruit(_snake, _xyMap);
   _graphics = get(_xyMap);
 }
@@ -67,7 +77,7 @@ bool		Nibbler::runGame()
 	  //Glibc::Time::_gettimeofday(&tmp_t, NULL);
 	  //}
       if (tmp == 4)
-	victory == true;
+	victory = true;
       else
 	{
 	  //std::cout << tmp << std::endl;

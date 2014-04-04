@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Thu Mar 27 17:21:04 2014 Raphael Morand
-// Last update Tue Apr  1 12:48:15 2014 Raphael Morand
+// Last update Fri Apr  4 10:28:42 2014 benjamin horiot
 //
 
 #include	"Fruit.hh"
@@ -23,7 +23,7 @@ Fruit::~Fruit()
 const std::pair<int, int>&	Fruit::getFruit() const
 {return (_pos);}
 
-const bool			Fruit::isEaten(const std::pair<int, int>& SnakeHead) const
+bool				Fruit::isEaten(const std::pair<int, int>& SnakeHead) const
 {
   if (SnakeHead.first == _pos.first &&
       SnakeHead.second == _pos.second)
@@ -45,7 +45,7 @@ void				Fruit::moveFruit(const Snake *snake,
       y = Glibc::Random::_random() % xyMap.second + 1;
       is_pos_ok = true;
       i = 0;
-      while (i < snake->getSnake().size())
+      while (i < (int)snake->getSnake().size())
 	{
 	  if (x == snake->getSnake()[i].first &&
 	      y == snake->getSnake()[i].second)

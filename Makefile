@@ -5,29 +5,39 @@
 ## Login   <horiot_b@epitech.net>
 ## 
 ## Started on  Sat Mar  8 10:56:32 2014 benjamin horiot
-## Last update Thu Mar 20 15:28:47 2014 benjamin horiot
+## Last update Fri Apr  4 10:40:05 2014 benjamin horiot
 ##
 
-SRC	=	src/error.cpp \
+SRC_NC	=	src/Fruit.cpp \
+		src/Ncurses.cpp \
+		src/Snake.cpp
+
+SRC	=	src/Fruit.cpp \
+		src/Glibc.cpp \
 		src/main.cpp \
-		src/ncurses.cpp \
-		src/snake.cpp \
+		src/Nibbler.cpp \
+		src/Snake.cpp
+
+OBJ_NC	=	$(SRC_NC:.cpp=.o)
 
 OBJ	=	$(SRC:.cpp=.o)
 
+NAME_NC	=	ncurses.so
+
 NAME	=	nibbler
 
+CPPFLAGS	=	-fPIC -W -Wall -Wextra -Werror
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ)
-		g++ -W -Wall -Wextra -Werror -o $(NAME) $(OBJ) -ldl -lcurses
-
+$(NAME):	$(OBJ) $(OBJ_NC)
+		g++ -o $(NAME) $(OBJ) -ldl
+		g++ -shared -o $(NAME_NC) $(OBJ_NC) -lncurses
 
 clean:
-		rm -f $(OBJ)
+		rm -f $(OBJ) $(OBJ_NC)
 
 fclean:		clean
-		rm -f $(NAME)
+		rm -f $(NAME) $(NAME_NC)
 
 re:		fclean all

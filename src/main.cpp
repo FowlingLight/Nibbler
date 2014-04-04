@@ -5,7 +5,7 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 12:50:36 2014 benjamin horiot
-// Last update Fri Apr  4 10:36:35 2014 benjamin horiot
+// Last update Fri Apr  4 12:59:32 2014 benjamin horiot
 //
 
 #include	<iostream>
@@ -15,6 +15,13 @@
 #include	"Snake.hh"
 #include	"Fruit.hh"
 #include	"IGraphics.hh"
+
+bool		check_size(int x, int y)
+{
+  if (x >= 10 && x <= 55 && y >= 10 && y <= 55)
+    return (true);
+  return (false);
+}
 
 int		main(int ac, char **av)
 {
@@ -30,6 +37,11 @@ int		main(int ac, char **av)
   if ((handle = Glibc::Libdl::_dlopen(av[3], RTLD_LAZY)) == NULL)
     {
       std::cerr << Glibc::Libdl::_dlerror() << std::endl;
+      return (-1);
+    }
+  if (!check_size(Glibc::Atoi::_atoi(av[1]), Glibc::Atoi::_atoi(av[2])))
+    {
+      std::cerr << "Entrer a size between 10x10 and 55x55" << std::endl;
       return (-1);
     }
   try

@@ -5,7 +5,7 @@
 ## Login   <horiot_b@epitech.net>
 ## 
 ## Started on  Sat Mar  8 10:56:32 2014 benjamin horiot
-## Last update Fri Apr  4 10:40:05 2014 benjamin horiot
+## Last update Fri Apr  4 11:26:59 2014 laguer_s
 ##
 
 SRC_NC	=	src/Fruit.cpp \
@@ -22,7 +22,7 @@ OBJ_NC	=	$(SRC_NC:.cpp=.o)
 
 OBJ	=	$(SRC:.cpp=.o)
 
-NAME_NC	=	ncurses.so
+NAME_NC	=	lib_nibbler_ncurses.so
 
 NAME	=	nibbler
 

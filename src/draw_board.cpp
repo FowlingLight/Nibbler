@@ -5,7 +5,7 @@
 // Login   <laguer_s@epitech.net>
 // 
 // Started on  Fri Apr  4 10:16:28 2014 laguer_s
-// Last update Sat Apr  5 17:04:17 2014 laguer_s
+// Last update Sat Apr  5 18:02:17 2014 benjamin horiot
 //
 
 #include	"OpenGL.hh"
@@ -28,7 +28,7 @@ void		draw_board(const std::pair<int,int>& map)
 }
 
 //void		drawSnake(std::vector<std::pair<int, int> > & snake)
-void		drawSnake(const Snake & s)
+void		drawSnake(const Snake &s)
 {
   std::cout << "drawSnake" << std::endl;
   int	i;
@@ -44,9 +44,10 @@ void		drawSnake(const Snake & s)
 }
 
 //void		drawFruit(const std::pair<int, int> & fruit)
-void		drawFruit(const Fruit & f)
+void		drawFruit(const Fruit &f)
 {
   std::pair<int, int> fruit = f.getFruit();
+
   std::cout << "drawFruit" << std::endl;
   glBegin(GL_POINTS);
   //glVertex2i(f.getFruit().first, f.getFruit().second);

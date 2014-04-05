@@ -5,7 +5,7 @@
 ## Login   <horiot_b@epitech.net>
 ## 
 ## Started on  Sat Mar  8 10:56:32 2014 benjamin horiot
-## Last update Sat Apr  5 17:05:44 2014 laguer_s
+## Last update Sat Apr  5 18:03:30 2014 benjamin horiot
 ##
 
 SRC_NC	=	src/Fruit.cpp \
@@ -19,7 +19,9 @@ SRC_SF	=	src/Fruit.cpp \
 		src/Glibc.cpp
 
 SRC_OGL =       src/draw_board.cpp \
-                src/OpenGL.cpp
+                src/OpenGL.cpp \
+		src/Snake.cpp \
+		src/Fruit.cpp
 
 SRC	=	src/Fruit.cpp \
 		src/Glibc.cpp \
@@ -51,11 +53,11 @@ $(NAME):	$(OBJ) $(OBJ_NC) $(OBJ_SF) $(OBJ_OGL)
 		g++ -o $(NAME) $(OBJ) -ldl
 		g++ -shared -o $(NAME_NC) $(OBJ_NC) -lncurses
 		g++ -shared -o $(NAME_SF) $(OBJ_SF) -lsfml-window -lsfml-system -lsfml-graphics
-		g++ -shared -o $(NAME_OGL) $(OBJ_OGL) -lglut -lGL -lGLU -lX11 -lXmu -lXi -lm -lSDL
+		g++ -shared -o $(NAME_OGL) $(OBJ_OGL) -lglut -lGL -lGLU -lX11 -lm -lSDL
 clean:
 		rm -f $(OBJ) $(OBJ_NC) $(OBJ_SF) $(OBJ_OGL)
 
 fclean:		clean
-		rm -f $(NAME) $(NAME_NC) $(OBJ_SF) $(NAME_OGL)
+		rm -f $(NAME) $(NAME_NC) $(NAME_SF) $(NAME_OGL)
 
 re:		fclean all

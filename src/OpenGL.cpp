@@ -5,7 +5,7 @@
 // Login   <laguer_s@epitech.net>
 // 
 // Started on  Thu Apr  3 15:55:17 2014 laguer_s
-// Last update Sat Apr  5 16:26:32 2014 laguer_s
+// Last update Sat Apr  5 18:02:05 2014 benjamin horiot
 //
 
 #include	"OpenGL.hh"
@@ -41,8 +41,8 @@ t_directions	OPENGL_Nib::getInput(const t_directions dir)
   return (dir);
 }
 
-void		OPENGL_Nib::updateDraw(const Snake & s, const Fruit & f,
-				       const std::pair<int, int>& map)
+void		OPENGL_Nib::updateDraw(const Snake &s, const Fruit &f,
+				       const std::pair<int, int> &map)
 {
   glClear(GL_COLOR_BUFFER_BIT);
   draw_board(map);

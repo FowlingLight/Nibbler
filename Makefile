@@ -5,7 +5,7 @@
 ## Login   <horiot_b@epitech.net>
 ## 
 ## Started on  Sat Mar  8 10:56:32 2014 benjamin horiot
-## Last update Sat Apr  5 17:05:44 2014 laguer_s
+## Last update Sat Apr  5 18:12:09 2014 laguer_s
 ##
 
 SRC_NC	=	src/Fruit.cpp \
@@ -19,7 +19,9 @@ SRC_SF	=	src/Fruit.cpp \
 		src/Glibc.cpp
 
 SRC_OGL =       src/draw_board.cpp \
-                src/OpenGL.cpp
+                src/OpenGL.cpp \
+		src/Fruit.cpp \
+		src/Snake.cpp
 
 SRC	=	src/Fruit.cpp \
 		src/Glibc.cpp \
@@ -56,6 +58,6 @@ clean:
 		rm -f $(OBJ) $(OBJ_NC) $(OBJ_SF) $(OBJ_OGL)
 
 fclean:		clean
-		rm -f $(NAME) $(NAME_NC) $(OBJ_SF) $(NAME_OGL)
+		rm -f $(NAME) $(NAME_NC) $(NAME_SF) $(NAME_OGL)
 
 re:		fclean all

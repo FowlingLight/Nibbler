@@ -5,7 +5,7 @@
 // Login   <laguer_s@epitech.net>
 // 
 // Started on  Fri Apr  4 10:16:28 2014 laguer_s
-// Last update Sat Apr  5 19:56:27 2014 laguer_s
+// Last update Sun Apr  6 18:55:08 2014 laguer_s
 //
 
 #include	"OpenGL.hh"
@@ -17,11 +17,11 @@ void		draw_board(const std::pair<int,int>& map)
 
   x = map.first;
   y = map.second;
-  glBegin(GL_POINTS);
-  glVertex2d(0, 0);
+  glBegin(GL_LINE_STRIP);
+  glVertex2d(1, 1);
+  glVertex2d(1, y);
   glVertex2d(x, y);
-  //  glVertex2d(x, y);
-  //  glVertex2d(x, 0);
+  glVertex2d(x, 1);
   glEnd();
 }
 

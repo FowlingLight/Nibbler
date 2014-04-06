@@ -5,7 +5,7 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 10:04:48 2014 benjamin horiot
-// Last update Sun Apr  6 12:49:38 2014 Raphael Morand
+// Last update Sun Apr  6 20:56:53 2014 benjamin horiot
 //
 
 #include <iostream>
@@ -36,7 +36,6 @@ Ncurses::~Ncurses()
   mod = Glibc::Fcntl::_fcntl(0, F_GETFL, 0);
   mod &= ~O_NONBLOCK;
   Glibc::Fcntl::_fcntl(0, F_SETFL, mod);
-  system("clear");
 }
 
 extern "C" 

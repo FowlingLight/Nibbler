@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Apr  2 15:18:30 2014 Raphael Morand
-// Last update Sun Apr  6 12:41:11 2014 Raphael Morand
+// Last update Sun Apr  6 12:50:38 2014 Raphael Morand
 //
 
 #include	<exception>
@@ -156,6 +156,3 @@ void		SFML_Nib::updateDraw(const Snake& snake, const Fruit& fruit,
   wr.draw(sp);
   wr.display();
 }
-
-void		SFML_Nib::gameOver(bool tre)
-{(void)tre;}

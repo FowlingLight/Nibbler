@@ -5,7 +5,7 @@
 // Login   <laguer_s@epitech.net>
 // 
 // Started on  Thu Apr  3 15:55:17 2014 laguer_s
-// Last update Sat Apr  5 20:01:54 2014 laguer_s
+// Last update Sun Apr  6 12:51:40 2014 Raphael Morand
 //
 
 #include	"OpenGL.hh"
@@ -61,11 +61,6 @@ void		OPENGL_Nib::updateDraw(const Snake & s, const Fruit & f,
   drawSnake(s);
   glFlush();
   SDL_GL_SwapBuffers();
-}
-
-void		OPENGL_Nib::gameOver(const bool lose)
-{
-  (void)lose;
 }
 
 extern "C"

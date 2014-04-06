@@ -5,7 +5,7 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 12:50:36 2014 benjamin horiot
-// Last update Fri Apr  4 12:59:32 2014 benjamin horiot
+// Last update Sun Apr  6 12:52:59 2014 Raphael Morand
 //
 
 #include	<iostream>
@@ -31,7 +31,7 @@ int		main(int ac, char **av)
 
   if (ac != 4)
     {
-      std::cerr << "Usage : ./nibler width height LIB.so" << std::endl;
+      std::cerr << "Usage : ./nibler width height ./LIB.so" << std::endl;
       return (-1);
     }
   if ((handle = Glibc::Libdl::_dlopen(av[3], RTLD_LAZY)) == NULL)
@@ -50,6 +50,7 @@ int		main(int ac, char **av)
       map.second = Glibc::Atoi::_atoi(av[2]);
       nibbler = new Nibbler(handle, map);
       nibbler->runGame();
+      std::cout << "Game Over" << std::endl;
       delete nibbler;
     }
   catch (std::exception& e)

@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Apr  2 15:18:34 2014 Raphael Morand
-// Last update Sun Apr  6 11:48:46 2014 Raphael Morand
+// Last update Sun Apr  6 12:50:24 2014 Raphael Morand
 //
 
 #ifndef	__SFML_NIB__
@@ -36,7 +36,6 @@ public:
   virtual t_directions	getInput(const t_directions dir);
   virtual void		updateDraw(const Snake& snake, const Fruit& fruit,
 			   const std::pair<int, int>& map);
-  virtual void		gameOver(const bool);
 };
 
 extern "C" {

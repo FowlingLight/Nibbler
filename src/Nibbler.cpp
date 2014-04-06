@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 13:04:56 2014 Raphael Morand
-// Last update Fri Apr  4 17:59:15 2014 Raphael Morand
+// Last update Sun Apr  6 12:49:24 2014 Raphael Morand
 //
 
 #include	<exception>
@@ -22,17 +22,7 @@ Nibbler::Nibbler(void *handler, const std::pair<int, int>& xyMap)
   get = (getInst)Glibc::Libdl::_dlsym(handler, "getInstance");
   del = (deleteInst)Glibc::Libdl::_dlsym(handler, "deleteInstance");
   if (!get || !del || !_snake || !_fruit)
-    {
-      if (!get)
-	std::cout << "get" << std::endl;
-      if (!del)
-	std::cout << "del" << std::endl;
-      if (!_snake)
-	std::cout << "snake" << std::endl;
-      if (!_fruit)
-	std::cout << "fruit" << std::endl;
-      throw std::exception();
-    }
+    throw std::exception();
   _fruit->moveFruit(_snake, _xyMap);
   _graphics = get(_xyMap);
 }
@@ -61,15 +51,15 @@ Nibbler::~Nibbler()
 bool		Nibbler::runGame()
 {
   t_directions	tmp;
-  bool		victory = false;
+  bool	        end = false;
 
-  while (!_snake->checkCollision(_xyMap) && !victory)
+  while (!_snake->checkCollision(_xyMap) && !end)
     {
       _graphics->updateDraw(*_snake, *_fruit, _xyMap);
       tmp = _snake->getDir();
       tmp = _graphics->getInput(_snake->getDir());
       if (tmp == 4)
-	victory = true;
+	end = true;
       else
 	{
 	  _snake->setDir(tmp);
@@ -80,10 +70,10 @@ bool		Nibbler::runGame()
 	      if (_snake->getSize() != _xyMap.first * _xyMap.second)
 		_fruit->moveFruit(_snake, _xyMap);
 	      else
-		victory = true;
+		end = true;
 	    }
 	  _snake->resetTail();
 	}
     }
-  return (victory);
+  return (end);
 }

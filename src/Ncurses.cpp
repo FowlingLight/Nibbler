@@ -5,7 +5,7 @@
 // Login   <horiot_b@epitech.net>
 // 
 // Started on  Wed Apr  2 10:04:48 2014 benjamin horiot
-// Last update Fri Apr  4 17:49:43 2014 benjamin horiot
+// Last update Sun Apr  6 12:49:38 2014 Raphael Morand
 //
 
 #include <iostream>
@@ -127,9 +127,4 @@ void		Ncurses::updateDraw(const Snake &s, const Fruit &f,
   mvprintw(f.getFruit().second, f.getFruit().first, "o");
   attroff(COLOR_PAIR(23));
   refresh();
-}
-
-void		Ncurses::gameOver(const bool lose)
-{
-  (void)lose;
 }

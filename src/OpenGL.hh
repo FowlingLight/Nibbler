@@ -5,7 +5,7 @@
 // Login   <laguer_s@epitech.net>
 // 
 // Started on  Thu Apr  3 15:45:51 2014 laguer_s
-// Last update Sat Apr  5 16:59:59 2014 laguer_s
+// Last update Sun Apr  6 12:50:14 2014 Raphael Morand
 //
 
 #ifndef		_OPENGL_NIB_
@@ -28,7 +28,6 @@ public:
   ~OPENGL_Nib();
   t_directions	getInput(const t_directions);
   void		updateDraw(const Snake &, const Fruit &, const std::pair<int, int> &);
-  void		gameOver(const bool);
 };
 
 void		draw_board(const std::pair<int, int>&);

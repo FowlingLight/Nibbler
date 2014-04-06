@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Mar 26 14:38:17 2014 Raphael Morand
-// Last update Fri Apr  4 10:28:13 2014 benjamin horiot
+// Last update Sun Apr  6 12:49:50 2014 Raphael Morand
 //
 
 #ifndef		__FRUIT__
@@ -22,7 +22,7 @@ private :
 public :
   Fruit(const int x, const int y);
   ~Fruit();
-  const std::pair<int, int>&		getFruit() const;
+  const std::pair<int, int>&	getFruit() const;
   bool				isEaten(const std::pair<int, int>& SnakeHead) const;
   void				moveFruit(const Snake *snake, 
 					  const std::pair<int, int>& xyMap);

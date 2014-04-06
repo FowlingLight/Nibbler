@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Apr  2 15:18:30 2014 Raphael Morand
-// Last update Fri Apr  4 18:03:57 2014 Raphael Morand
+// Last update Sun Apr  6 12:41:11 2014 Raphael Morand
 //
 
 #include	<exception>
@@ -26,6 +26,7 @@ SFML_Nib::SFML_Nib(const std::pair<int, int>& map)
 {
   wr.create(sf::VideoMode((map.first + 2) * 8, (map.second + 2) * 8), "Nibbler");
   wr.setKeyRepeatEnabled(false);
+  rt.create(8 * (map.first + 2), 8 * (map.second + 2));
   if (!wr.isOpen())
     throw std::exception();
   if (!spriteSheet.loadFromFile("./ressources/Nibbler.bmp"))
@@ -50,28 +51,37 @@ t_directions		SFML_Nib::getInput(const t_directions dir)
   sf::Event		event;
   sf::Clock		clock;
   sf::Time		time;
+  sf::Time		time2;
 
-  time = clock.getElapsedTime();
   tmp = dir;
-  while (clock.getElapsedTime().asMilliseconds() < time.asMilliseconds() + 200 && wr.waitEvent(event))
+  time = clock.getElapsedTime();
+  time2 = time;
+  while (time2.asMilliseconds() < time.asMilliseconds() + 150)
     {
-      if (event.type == sf::Event::Closed
-	  || (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
-	tmp = EXIT;
-      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+      while (wr.pollEvent(event))
 	{
-	  if (dir == LEFT)
-	    tmp = UP;
-	  else
-	    tmp = (t_directions)(dir + 1);
+	  if (event.type == sf::Event::Closed
+	      || (event.type == sf::Event::KeyPressed 
+		  && event.key.code == sf::Keyboard::Escape))
+	    tmp = EXIT;
+	  else if (event.type == sf::Event::KeyPressed 
+		  && event.key.code == sf::Keyboard::Right)
+	    {
+	      if (dir == 3)
+		tmp = (t_directions)0;
+	      else
+		tmp = (t_directions)((int)dir + 1);
+	    }
+	  else if (event.type == sf::Event::KeyPressed 
+		  && event.key.code == sf::Keyboard::Left)
+	    {
+	      if (dir == 0)
+		tmp = (t_directions)3;
+	      else
+	    tmp = (t_directions)((int)dir - 1);
+	    }
 	}
-      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-	{
-	  if (dir == UP)
-	    tmp = LEFT;
-	  else
-	    tmp = (t_directions)(dir - 1);
-	}
+      time2 = clock.getElapsedTime();
     }
   return (tmp);
 }
@@ -105,12 +115,10 @@ bool		is_snake(const std::vector<std::pair<int, int> >& snake, const int x, cons
 void		SFML_Nib::updateDraw(const Snake& snake, const Fruit& fruit,
 				     const std::pair<int, int>& map)
 {
-  sf::RenderTexture	rt;
   sf::Sprite		sp;
   int			x = 0;
   int			y = 0;
 
-  rt.create(8 * (map.first + 2), 8 * (map.second + 2));
   rt.clear();
   y = 0;
   while (y <= map.second + 1)
@@ -125,17 +133,17 @@ void		SFML_Nib::updateDraw(const Snake& snake, const Fruit& fruit,
 	    }
 	  else if (is_food(x, y, fruit.getFruit()))
 	    {
-	      _fruit.setPosition(x * 8, y * 8);
+	      _fruit.setPosition(x * 8, ((map.second + 1) - y) * 8);
 	      rt.draw(_fruit);
 	    }
 	  else if (is_head(snake.getHead(), x, y))
 	    {
-	      snakeHead.setPosition(x * 8, y * 8);
+	      snakeHead.setPosition(x * 8, ((map.second + 1)- y) * 8);
 	      rt.draw(snakeHead);
 	    }
 	  else if (is_snake(snake.getSnake(), x, y))
 	    {
-	      snakeBody.setPosition(x * 8, y * 8);
+	      snakeBody.setPosition(x * 8, ((map.second + 1) - y) * 8);
 	      rt.draw(snakeBody);
 	    }
 	  ++x;

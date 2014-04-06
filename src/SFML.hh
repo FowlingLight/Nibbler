@@ -5,7 +5,7 @@
 // Login   <morand_c@epitech.net>
 // 
 // Started on  Wed Apr  2 15:18:34 2014 Raphael Morand
-// Last update Fri Apr  4 11:23:51 2014 Raphael Morand
+// Last update Sun Apr  6 11:48:46 2014 Raphael Morand
 //
 
 #ifndef	__SFML_NIB__
@@ -29,6 +29,7 @@ private:
   sf::Sprite		snakeBody;
   sf::Sprite		wall;
   sf::Sprite		_fruit;
+  sf::RenderTexture	rt;
 public:
   SFML_Nib(const std::pair<int, int>& map);
   virtual ~SFML_Nib();

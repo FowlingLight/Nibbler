@@ -5,7 +5,7 @@
 // Login   <laguer_s@epitech.net>
 // 
 // Started on  Thu Apr  3 15:55:17 2014 laguer_s
-// Last update Sun Apr  6 19:03:51 2014 laguer_s
+// Last update Sun Apr  6 20:58:47 2014 laguer_s
 //
 
 #include	"OpenGL.hh"
@@ -14,12 +14,12 @@ OPENGL_Nib::OPENGL_Nib(const std::pair<int, int>& map)
 {
   SDL_Init(SDL_INIT_VIDEO);
   SDL_WM_SetCaption("Nibbler",NULL);
-  SDL_SetVideoMode((map.first + 4) * 8, (map.second + 2) * 8 + 4, 32, SDL_OPENGL);
+  SDL_SetVideoMode((map.first + 2) * 10, (map.second + 2) * 10, 32, SDL_OPENGL);
   glMatrixMode( GL_PROJECTION);
   glLoadIdentity();
-  gluLookAt(-0, -0, 0,
+  gluLookAt(-0.02999, -0.02999, 0,
 	    0, 0,-1,
-	    0, 1, 0);
+	    0, 1, 0);    
   gluOrtho2D(map.first,0,map.second,0);
 }
 

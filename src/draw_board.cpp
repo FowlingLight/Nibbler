@@ -5,7 +5,7 @@
 // Login   <laguer_s@epitech.net>
 // 
 // Started on  Fri Apr  4 10:16:28 2014 laguer_s
-// Last update Sun Apr  6 20:55:54 2014 laguer_s
+// Last update Sun Apr  6 21:08:42 2014 laguer_s
 //
 
 #include	"OpenGL.hh"
@@ -32,7 +32,7 @@ void		drawSnake(const Snake & s)
   i = 1;
   glBegin(GL_LINE_STRIP);
   glVertex2i(s.getHead().first, s.getHead().second);
-  while (i <= s.getSize())
+  while (i <= s.getSize() - 1)
     {
       glVertex2i(s.getSnake()[i].first, s.getSnake()[i].second);
       i++;

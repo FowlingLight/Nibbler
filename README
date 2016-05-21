@@ -1,0 +1,6 @@
+Run the program with ./nibbler width[10-55] height[10.55] ./LIB
+
+Controls
+Left arrow : go left
+Right arrow : go right
+Escape : quit
